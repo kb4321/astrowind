@@ -1,0 +1,25 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import SocialShare from '~/components/common/SocialShare.astro';
+import { Icon } from 'astro-icon';
+import { Picture } from 'astro:assets';
+import DateUtil from '~/components/DateUtil.vue';
+
+// import PostTags from '~/components/blog/Tags.astro';
+export const prerender = false;
+const slug = Astro.params.slug;
+console.log(slug);
+console.log('eee er eee err');
+
+// if slug or source is missing redirect
+if ( !slug ) {
+  return Astro.redirect('/404');
+}
+
+---
+
+<Layout>
+  <div class="container max-w-3xl mx-auto mt-10 mb-10">
+<p>{slug}</>
+  </div>
+</Layout>
