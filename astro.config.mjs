@@ -9,6 +9,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import tasks from './src/utils/tasks';
+import netlify from '@astrojs/netlify/functions';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 
@@ -28,8 +29,8 @@ export default defineConfig({
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
-  output: 'static',
-
+  output: "server",
+  adapter: netlify(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
